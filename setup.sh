@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo "This is a automatic setup for your new Linux Mint OS"
 sleep 3
@@ -14,18 +14,18 @@ echo "Important! You will be prompted to enter your password to update the syste
 sleep 3
 read -p "Press Enter to continue..."
 
-echo "Update & Upgrade"
+echo "Update & Upgrade System"
 sleep 2
 sudo apt update; sudo apt upgrade -y
 
-echo "Firewall"
+echo "Firewall Setup"
 sleep 2
 
 echo "Install Firewall"
 sleep 2
 sudo apt install ufw -y
 
-echo "Default Rules"
+echo "Add default Rules"
 sleep 2
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
@@ -60,12 +60,12 @@ else
     echo "Skipping VLC installation."
 fi
 
-echo "Windows like Theme"
+echo "Windows 11 like Theme Setup"
 sleep 2
 
 echo "Download Theme"
 sleep 2
-cd /home/$USER/Downloads
+cd /home/"$USER"/Downloads
 wget https://github.com/luisrguerra/fluent11-icon-theme/archive/refs/tags/0.6.zip
 wget https://github.com/vinceliuice/Fluent-gtk-theme/archive/refs/tags/2025-04-17.zip
 
@@ -74,34 +74,34 @@ sleep 2
 unzip 0.6.zip
 unzip 2025-04-17.zip
 
-echo "Delete Zip"
+echo "Remove Zip"
 sleep 2
 sudo rm -rf 0.6.zip
 sudo rm -rf 2025-04-17.zip
 
-echo "Ownership"
+echo "Change ownership in downloads"
 sleep 2
-sudo chown -R $SUDO_USER:sudo Fluent-gtk-theme-2025-04-17
-sudo chown -R $SUDO_USER:sudo fluent11-icon-theme-0.6
+sudo chown -R "$SUDO_USER":sudo Fluent-gtk-theme-2025-04-17
+sudo chown -R "$SUDO_USER":sudo fluent11-icon-theme-0.6
 
 echo "Install Theme"
 sleep 2
 bash Fluent-gtk-theme-2025-04-17/install.sh
 
-echo "Copy Icons"
+echo "Copy Icons in icon folder"
 sleep 2
-mkdir -p /home/$USER/.icons
-cp -r fluent11-icon-theme-0.6/fluent11 /home/$USER/.icons
-cp -r fluent11-icon-theme-0.6/fluent11-light /home/$USER/.icons
+mkdir -p /home/"$USER"/.icons
+cp -r fluent11-icon-theme-0.6/fluent11 /home/"$USER"/.icons
+cp -r fluent11-icon-theme-0.6/fluent11-light /home/"$USER"/.icons
 cd ..
 
-echo "Ownership"
+echo "Change ownership in icons folder"
 sleep 2
-cd /home/$USER/.icons
-sudo chown -R $SUDO_USER:sudo fluent11
-sudo chown -R $SUDO_USER:sudo fluent11-light
+cd /home/"$USER"/.icons
+sudo chown -R "$SUDO_USER":sudo fluent11
+sudo chown -R "$SUDO_USER":sudo fluent11-light
 
-echo "Set Cursor"
+echo "Set Windows like Cursor"
 sleep 2
 gsettings set org.cinnamon.desktop.interface cursor-theme "DMZ-White"
 gsettings get org.cinnamon.desktop.interface cursor-theme
