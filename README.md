@@ -8,3 +8,6 @@ What does the script do?
 2. Firewall Setup
 3. Package installation (optional by yes or no)
 4. Windows 11 like Theme
+5. Modern Font "Inter"
+
+Execute the script by going into the directory of the script and type: bash setup.sh
