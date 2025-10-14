@@ -10,4 +10,4 @@ What does the script do?
 4. Windows 11 like Theme
 5. Modern Font "Inter"
 
-Execute the script by going into the directory of the script and type: bash setup.sh
+Execute the script by going into the directory of the script and type: bash Setup.sh
