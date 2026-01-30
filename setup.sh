@@ -111,7 +111,7 @@ sleep 2
 gsettings set org.cinnamon.desktop.interface gtk-theme "Fluent-Light"
 echo "Set Desktop Theme"
 sleep 2
-gsettings set org.cinnamon.theme name "Fluent-Light"
+gsettings set org.cinnamon.theme name "Fluent-Dark"
 echo "Set Icon Theme"
 sleep 2
 gsettings set org.cinnamon.desktop.interface icon-theme "fluent11"
